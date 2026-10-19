@@ -141,11 +141,15 @@ sequenceDiagram
 
     Browser->>Web: POST /api/chat with request_id and expected_revision
     Web->>API: Forward JSON, cookie and origin
-    API->>DB: Resolve session and look up request_id
+    activate API
+    API->>DB: Authenticate session and look up request_id
+    API->>DB: Get response
     alt Completed request with matching input
         DB-->>API: Saved response
-        API-->>Web: Return saved response
-    else Conflicting input or stale revision
+        API-->>Web: Return saved response (no new turn)
+    else Same request is still pending
+        API-->>Web: 409 Conflict
+    else Conflicting input, stale revision or activity
         API-->>Web: 409 Conflict
     else New turn
         API->>DB: Create and commit pending turn
@@ -155,18 +159,30 @@ sequenceDiagram
             Provider-->>API: Validated reply or provider error
             API->>API: Select local fallback on error or timeout
         end
-        API->>DB: Commit response and state; advance revision
+        API->>DB: Commit response and state&#59; advance revision
         API-->>Web: ChatResponse
     end
+    deactivate API
     Web-->>Browser: JSON response or conflict
+    Browser->>Browser: On success, append reply and store revision/activity
+    Browser->>Browser: On error, keep draft and show error&#59; do not advance state
 ```
 
-Each chat request carries a UUID `request_id` and the last known
-`expected_revision`. A completed request with the same input returns its saved
-response. Reusing the ID with different input or submitting an outdated revision
-returns `409`. The pending turn is committed first; on normal completion, the
-response and learning state changes are committed together. Unexpected failures
-roll back in-progress changes and mark the turn failed.
+The frontend generates a UUID `request_id` for each new submission and sends it
+with the last known `expected_revision`. The request ID is retained by the
+caller when a request is retried, so a completed request with the same input
+returns its saved response without creating another turn. Reusing the ID with
+different input, retrying while that request is still pending, or submitting an
+outdated revision or activity instance returns `409`. The frontend treats a
+successful response as the only point at which it appends the reply and
+advances its local revision and activity state; failed requests leave the draft
+available and do not advance local state.
+
+The pending turn is committed before processing starts. On normal completion,
+the response and learning state changes are committed together. Provider
+timeouts and provider errors roll back uncommitted learning changes, then save a
+local fallback response as the completed turn. Unexpected failures roll back
+in-progress changes, mark the turn failed, and return an error to the client.
 
 Safety checks can select a local support response before provider generation.
 Curriculum answer checking and promotion eligibility are implemented in backend
