@@ -480,6 +480,13 @@ to Render's comma-separated `FRONTEND_ORIGIN` when needed. Do not allow all
 - **502/504:** Check Render startup logs and `/ready` for sleep/startup/DB errors.
 - **Migration failure:** Check the direct database URL and credentials.
   Do not stamp an empty database as migrated.
+- **Build fails compiling `pydantic-core` with Python 3.14:** Set Render's
+  `PYTHON_VERSION` environment variable to `3.12.10`, then clear the build cache
+  and redeploy. The repository also pins this version in `.python-version`.
+  Render environment variables take precedence over the version file. For a
+  manually created service, set this variable in Render even though it is also
+  present in `render.yaml`. Confirm the build command installs
+  `requirements-render.txt`, which includes the PostgreSQL driver.
 
 References: [Render Free](https://render.com/docs/free),
 [Render Blueprints](https://render.com/docs/blueprint-spec),
