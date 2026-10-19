@@ -1,0 +1,534 @@
+{
+  "activities": [
+    {
+      "id": "L1_vocab_colors_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What color is the sky? ☀️",
+      "choices": [
+        {"id": "a", "text": "Blue"},
+        {"id": "b", "text": "Red"},
+        {"id": "c", "text": "Green"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "Look outside on a sunny day!",
+      "feedback_correct": "Yes! The sky is blue! 🎉",
+      "feedback_incorrect": "Not quite! The sky is blue on a sunny day."
+    },
+    {
+      "id": "L1_vocab_colors_2",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What color is grass? 🌱",
+      "choices": [
+        {"id": "a", "text": "Yellow"},
+        {"id": "b", "text": "Green"},
+        {"id": "c", "text": "Blue"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Think about what you see in a garden!",
+      "feedback_correct": "That's right! Grass is green! 🌿",
+      "feedback_incorrect": "Almost! Grass is green like the leaves."
+    },
+    {
+      "id": "L1_vocab_animals_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "Which animal says 'woof'? 🐕",
+      "choices": [
+        {"id": "a", "text": "Cat"},
+        {"id": "b", "text": "Dog"},
+        {"id": "c", "text": "Bird"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "This pet loves to play fetch!",
+      "feedback_correct": "Yes! Dogs say woof! 🐶",
+      "feedback_incorrect": "Try again! Dogs say woof."
+    },
+    {
+      "id": "L1_vocab_animals_2",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "Which animal says 'meow'? 🐱",
+      "choices": [
+        {"id": "a", "text": "Cat"},
+        {"id": "b", "text": "Fish"},
+        {"id": "c", "text": "Cow"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "This pet is soft and furry!",
+      "feedback_correct": "Correct! Cats say meow! 😺",
+      "feedback_incorrect": "Not quite! Cats say meow."
+    },
+    {
+      "id": "L1_vocab_greetings_1",
+      "level": "L1",
+      "skill": "phrases",
+      "type": "short_answer",
+      "prompt": "How do you say hi to a friend? 👋",
+      "choices": null,
+      "accepted_answers": ["hello", "hi", "hey"],
+      "hint": "It starts with 'H'!",
+      "feedback_correct": "Great job! That's a friendly greeting! 🌟",
+      "feedback_incorrect": "A common greeting is 'Hello' or 'Hi'."
+    },
+    {
+      "id": "L1_vocab_greetings_2",
+      "level": "L1",
+      "skill": "phrases",
+      "type": "multiple_choice",
+      "prompt": "What do you say when you leave? 👋",
+      "choices": [
+        {"id": "a", "text": "Hello"},
+        {"id": "b", "text": "Goodbye"},
+        {"id": "c", "text": "Please"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "It's the opposite of hello!",
+      "feedback_correct": "Right! We say Goodbye when we leave! 👋",
+      "feedback_incorrect": "When we leave, we say 'Goodbye'."
+    },
+    {
+      "id": "L1_vocab_numbers_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "short_answer",
+      "prompt": "What number comes after two? 🔢",
+      "choices": null,
+      "accepted_answers": ["3", "three"],
+      "hint": "Count on your fingers: one, two, ...",
+      "feedback_correct": "Yes! Three comes after two! 🎯",
+      "feedback_incorrect": "After two comes three (3)."
+    },
+    {
+      "id": "L1_vocab_body_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What do you use to see? 👀",
+      "choices": [
+        {"id": "a", "text": "Ears"},
+        {"id": "b", "text": "Eyes"},
+        {"id": "c", "text": "Nose"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "They are on your face and they open and close!",
+      "feedback_correct": "Correct! We use our eyes to see! 👁️",
+      "feedback_incorrect": "We use our eyes to see things."
+    },
+    {
+      "id": "L1_vocab_food_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "Which one is a fruit? 🍎",
+      "choices": [
+        {"id": "a", "text": "Apple"},
+        {"id": "b", "text": "Bread"},
+        {"id": "c", "text": "Milk"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "It grows on a tree and can be red or green!",
+      "feedback_correct": "Yes! An apple is a fruit! 🍏",
+      "feedback_incorrect": "An apple is the fruit here."
+    },
+    {
+      "id": "L1_vocab_weather_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What falls from the sky when it rains? 🌧️",
+      "choices": [
+        {"id": "a", "text": "Snow"},
+        {"id": "b", "text": "Water"},
+        {"id": "c", "text": "Leaves"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "You need an umbrella for this!",
+      "feedback_correct": "That's right! Water falls when it rains! 💧",
+      "feedback_incorrect": "When it rains, water drops fall from the sky."
+    },
+    {
+      "id": "L1_placement_1",
+      "level": "L1",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What color is a banana? 🍌",
+      "choices": [
+        {"id": "a", "text": "Yellow"},
+        {"id": "b", "text": "Purple"},
+        {"id": "c", "text": "Blue"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "It's a bright, sunny color!",
+      "feedback_correct": "Yes! Bananas are yellow! 🍌",
+      "feedback_incorrect": "Bananas are yellow.",
+      "placement": true,
+      "placement_order": 1
+    },
+
+    {
+      "id": "L2_phrases_likes_1",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "multiple_choice",
+      "prompt": "Finish the sentence: 'I like ___' 🎨",
+      "choices": [
+        {"id": "a", "text": "to draw"},
+        {"id": "b", "text": "drawing is"},
+        {"id": "c", "text": "draw to"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "We say 'I like to...' and then an action!",
+      "feedback_correct": "Great! 'I like to draw' is perfect! ✏️",
+      "feedback_incorrect": "We say 'I like to draw'."
+    },
+    {
+      "id": "L2_phrases_likes_2",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "short_answer",
+      "prompt": "Tell me one thing you like! Start with 'I like' 😊",
+      "choices": null,
+      "accepted_answers": ["i like"],
+      "hint": "Start your sentence with 'I like...'",
+      "feedback_correct": "Wonderful! That's a great sentence! ⭐",
+      "feedback_incorrect": "Try starting with 'I like...' and then something you enjoy!"
+    },
+    {
+      "id": "L2_phrases_questions_1",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "multiple_choice",
+      "prompt": "Which is a question? ❓",
+      "choices": [
+        {"id": "a", "text": "I am happy."},
+        {"id": "b", "text": "Are you happy?"},
+        {"id": "c", "text": "You are happy."}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Questions usually end with this mark: ?",
+      "feedback_correct": "Yes! 'Are you happy?' is a question! 🤔",
+      "feedback_incorrect": "A question asks something and ends with '?'."
+    },
+    {
+      "id": "L2_vocab_family_1",
+      "level": "L2",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "Your mother's mother is your ___? 👵",
+      "choices": [
+        {"id": "a", "text": "Sister"},
+        {"id": "b", "text": "Grandmother"},
+        {"id": "c", "text": "Aunt"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "She is your 'grand' something!",
+      "feedback_correct": "Correct! She is your grandmother! 👵",
+      "feedback_incorrect": "Your mother's mother is your grandmother."
+    },
+    {
+      "id": "L2_vocab_feelings_1",
+      "level": "L2",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "How do you feel when you get a present? 🎁",
+      "choices": [
+        {"id": "a", "text": "Sad"},
+        {"id": "b", "text": "Happy"},
+        {"id": "c", "text": "Angry"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Getting a gift usually makes you smile!",
+      "feedback_correct": "Yes! Getting presents makes us happy! 😄",
+      "feedback_incorrect": "Getting a present usually makes us feel happy!"
+    },
+    {
+      "id": "L2_phrases_descriptions_1",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "short_answer",
+      "prompt": "The sun is ___. (Is it hot or cold?) ☀️",
+      "choices": null,
+      "accepted_answers": ["hot", "warm", "very hot"],
+      "hint": "Think about how the sun feels in summer!",
+      "feedback_correct": "Right! The sun is hot! ☀️",
+      "feedback_incorrect": "The sun is hot. It gives us warmth!"
+    },
+    {
+      "id": "L2_vocab_clothing_1",
+      "level": "L2",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What do you wear on your feet? 👟",
+      "choices": [
+        {"id": "a", "text": "Hat"},
+        {"id": "b", "text": "Shoes"},
+        {"id": "c", "text": "Gloves"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "You put them on before you go outside to walk!",
+      "feedback_correct": "Yes! We wear shoes on our feet! 👟",
+      "feedback_incorrect": "We wear shoes on our feet."
+    },
+    {
+      "id": "L2_phrases_polite_1",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "short_answer",
+      "prompt": "What do you say when someone gives you something? 🙏",
+      "choices": null,
+      "accepted_answers": ["thank you", "thanks", "thank u"],
+      "hint": "It's a polite way to show you're grateful!",
+      "feedback_correct": "Wonderful manners! 'Thank you' is so polite! ⭐",
+      "feedback_incorrect": "We say 'Thank you' when someone gives us something."
+    },
+    {
+      "id": "L2_vocab_places_1",
+      "level": "L2",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "Where do you go to learn and study? 🏫",
+      "choices": [
+        {"id": "a", "text": "School"},
+        {"id": "b", "text": "Park"},
+        {"id": "c", "text": "Beach"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "Your teacher is there!",
+      "feedback_correct": "Right! We go to school to learn! 📚",
+      "feedback_incorrect": "We go to school to learn and study."
+    },
+    {
+      "id": "L2_phrases_routine_1",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "multiple_choice",
+      "prompt": "What do we do in the morning? 🌅",
+      "choices": [
+        {"id": "a", "text": "Wake up"},
+        {"id": "b", "text": "Go to sleep"},
+        {"id": "c", "text": "See stars"}
+      ],
+      "accepted_answers": ["a"],
+      "hint": "The sun rises and you open your eyes!",
+      "feedback_correct": "Good morning! We wake up! ☀️",
+      "feedback_incorrect": "In the morning, we wake up to start the day."
+    },
+    {
+      "id": "L2_placement_1",
+      "level": "L2",
+      "skill": "grammar",
+      "type": "multiple_choice",
+      "prompt": "Pick the correct sentence: 🤓",
+      "choices": [
+        {"id": "a", "text": "She are nice."},
+        {"id": "b", "text": "She is nice."},
+        {"id": "c", "text": "She am nice."}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "With 'she', we use 'is'!",
+      "feedback_correct": "Perfect! 'She is nice' is correct! 👏",
+      "feedback_incorrect": "We say 'She is nice'.",
+      "placement": true,
+      "placement_order": 2
+    },
+
+    {
+      "id": "L3_desc_story_1",
+      "level": "L3",
+      "skill": "reading",
+      "type": "multiple_choice",
+      "prompt": "Read this: 'The cat sat on the mat. It was sleeping.' What was the cat doing? 🐱",
+      "choices": [
+        {"id": "a", "text": "Running"},
+        {"id": "b", "text": "Sleeping"},
+        {"id": "c", "text": "Eating"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Read the second sentence again carefully!",
+      "feedback_correct": "Great reading! The cat was sleeping! 😴",
+      "feedback_incorrect": "The story says the cat 'was sleeping'."
+    },
+    {
+      "id": "L3_desc_story_2",
+      "level": "L3",
+      "skill": "reading",
+      "type": "short_answer",
+      "prompt": "'The boy has a red ball. He plays in the park.' Where does the boy play? 🏈",
+      "choices": null,
+      "accepted_answers": ["park", "the park", "in the park"],
+      "hint": "Look at the second sentence for the place!",
+      "feedback_correct": "Excellent! He plays in the park! 🌳",
+      "feedback_incorrect": "The boy plays in the park."
+    },
+    {
+      "id": "L3_grammar_sentences_1",
+      "level": "L3",
+      "skill": "grammar",
+      "type": "multiple_choice",
+      "prompt": "Which sentence is correct? ✍️",
+      "choices": [
+        {"id": "a", "text": "They is playing."},
+        {"id": "b", "text": "They are playing."},
+        {"id": "c", "text": "They am playing."}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "With 'they', we use 'are'!",
+      "feedback_correct": "Perfect grammar! 'They are playing' is right! 🎯",
+      "feedback_incorrect": "We say 'They are playing'."
+    },
+    {
+      "id": "L3_grammar_sentences_2",
+      "level": "L3",
+      "skill": "grammar",
+      "type": "short_answer",
+      "prompt": "Make a sentence about your favorite animal! Write two sentences. 🐾",
+      "choices": null,
+      "accepted_answers": ["i like", "my favorite", "i love"],
+      "hint": "Start with 'I like...' or 'My favorite animal is...'",
+      "feedback_correct": "What a wonderful sentence! You're a great writer! ✨",
+      "feedback_incorrect": "Try: 'I like dogs. They are friendly!'"
+    },
+    {
+      "id": "L3_vocab_opposites_1",
+      "level": "L3",
+      "skill": "vocabulary",
+      "type": "multiple_choice",
+      "prompt": "What is the opposite of 'big'? 📏",
+      "choices": [
+        {"id": "a", "text": "Tall"},
+        {"id": "b", "text": "Small"},
+        {"id": "c", "text": "Wide"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "An ant is the opposite of big!",
+      "feedback_correct": "Yes! Small is the opposite of big! 🐜",
+      "feedback_incorrect": "The opposite of big is small."
+    },
+    {
+      "id": "L3_vocab_opposites_2",
+      "level": "L3",
+      "skill": "vocabulary",
+      "type": "short_answer",
+      "prompt": "What is the opposite of 'hot'? 🌡️",
+      "choices": null,
+      "accepted_answers": ["cold", "cool"],
+      "hint": "Think about ice cream or snow!",
+      "feedback_correct": "Right! Cold is the opposite of hot! ❄️",
+      "feedback_incorrect": "The opposite of hot is cold."
+    },
+    {
+      "id": "L3_reading_comp_1",
+      "level": "L3",
+      "skill": "reading",
+      "type": "multiple_choice",
+      "prompt": "'Sara has three apples. She gives one to Tom.' How many does Sara have now? 🍎",
+      "choices": [
+        {"id": "a", "text": "One"},
+        {"id": "b", "text": "Two"},
+        {"id": "c", "text": "Three"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Three take away one equals...?",
+      "feedback_correct": "Great math and reading! Sara has two apples! 🍎🍎",
+      "feedback_incorrect": "Sara had 3 and gave 1 away: 3 - 1 = 2."
+    },
+    {
+      "id": "L3_grammar_past_1",
+      "level": "L3",
+      "skill": "grammar",
+      "type": "multiple_choice",
+      "prompt": "Yesterday, I ___ to school. (go) 🏫",
+      "choices": [
+        {"id": "a", "text": "go"},
+        {"id": "b", "text": "went"},
+        {"id": "c", "text": "goed"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "This is the past tense of 'go'!",
+      "feedback_correct": "Excellent! 'Went' is the past of 'go'! 🎓",
+      "feedback_incorrect": "We say 'I went to school' for the past."
+    },
+    {
+      "id": "L3_vocab_actions_1",
+      "level": "L3",
+      "skill": "vocabulary",
+      "type": "short_answer",
+      "prompt": "Name something you do every morning! ☀️",
+      "choices": null,
+      "accepted_answers": ["wake up", "brush my teeth", "eat breakfast", "get dressed", "brush teeth", "eat"],
+      "hint": "Think about what happens when you start your day!",
+      "feedback_correct": "Yes! That's part of a morning routine! 🌅",
+      "feedback_incorrect": "Morning activities include waking up, brushing teeth, and eating breakfast."
+    },
+    {
+      "id": "L3_reading_comp_2",
+      "level": "L3",
+      "skill": "reading",
+      "type": "multiple_choice",
+      "prompt": "'It is cold outside. Ben wears his warm coat.' Why does Ben wear a coat? 🧥",
+      "choices": [
+        {"id": "a", "text": "It is raining"},
+        {"id": "b", "text": "It is cold"},
+        {"id": "c", "text": "It is his birthday"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Read the first sentence for the reason!",
+      "feedback_correct": "Smart reading! Ben wears a coat because it is cold! 🧥",
+      "feedback_incorrect": "The story says 'It is cold outside' - that's why Ben needs a coat."
+    },
+    {
+      "id": "L3_placement_1",
+      "level": "L3",
+      "skill": "reading",
+      "type": "multiple_choice",
+      "prompt": "'The dog ran fast. It caught the ball.' What did the dog catch? 🐕",
+      "choices": [
+        {"id": "a", "text": "A cat"},
+        {"id": "b", "text": "A ball"},
+        {"id": "c", "text": "A stick"}
+      ],
+      "accepted_answers": ["b"],
+      "hint": "Read the second sentence carefully!",
+      "feedback_correct": "Great reading! The dog caught the ball! 🎾",
+      "feedback_incorrect": "The dog caught the ball.",
+      "placement": true,
+      "placement_order": 3
+    }
+  ],
+  "engagement_games": [
+    {
+      "id": "game_riddle_1",
+      "type": "riddle",
+      "prompt": "I have ears but cannot hear. I have a cover but am not a door. What am I? 📖",
+      "answer": "A book!",
+      "hint": "You can read me!"
+    },
+    {
+      "id": "game_riddle_2",
+      "type": "riddle",
+      "prompt": "I am full of keys but cannot open any door. What am I? 🎹",
+      "answer": "A piano!",
+      "hint": "You play music on me!"
+    },
+    {
+      "id": "game_word_1",
+      "type": "word_game",
+      "prompt": "Can you think of 3 animals that start with the letter 'C'? 🐱",
+      "answer": "Cat, cow, camel, chicken, cheetah...",
+      "hint": "Think of a farm animal that gives milk!"
+    },
+    {
+      "id": "game_word_2",
+      "type": "word_game",
+      "prompt": "What rhymes with 'cat'? Can you name 3 words? 🎩",
+      "answer": "hat, bat, mat, rat, sat, fat...",
+      "hint": "You wear one on your head!"
+    }
+  ]
+}

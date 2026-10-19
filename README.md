@@ -1,6 +1,6 @@
 # Little English Buddy 🐥💬
 
-> **A safe, text-only English learning chatbot for children under seven.**  
+> **A safe, text-only English learning chatbot for children under seven.**
 > Built with modern Python (FastAPI + SQLAlchemy async + SQLite WAL) and Next.js 16 (App Router + React 19 + Tailwind CSS v4).
 
 [![Backend Tests](https://img.shields.io/badge/backend%20tests-53%20passed-brightgreen)](#automated-testing)
@@ -12,7 +12,7 @@
 
 ## 1. Overview & Pedagogical Design
 
-**Little English Buddy** is tailored specifically for early learners (ages 3–7) acquiring English as a first or additional language. 
+**Little English Buddy** is tailored specifically for early learners (ages 3–7) acquiring English as a first or additional language.
 
 ### Core Features
 - **Deterministic Mock Provider by Default**: Boots and operates with 100% functionality without requiring external cloud accounts or API keys.
@@ -85,7 +85,7 @@ Local development uses the same application layers with SQLite in WAL mode.
 `LLM_PROVIDER=mock` runs without Groq. The hosted configuration is defined in
 [`render.yaml`](render.yaml), [`frontend/vercel.json`](frontend/vercel.json), and
 [`frontend/next.config.ts`](frontend/next.config.ts). See
-[DEPLOYMENT.md](DEPLOYMENT.md) for setup instructions.
+[deployment instructions](#7-deployment-on-render-and-vercel) for setup instructions.
 
 ### System Design Documentation
 
@@ -280,7 +280,7 @@ for both the frontend and API so session cookies work correctly.
 
 ---
 
-Deployment on Render Free + Vercel Hobby: see [DEPLOYMENT.md](DEPLOYMENT.md)
+Deployment on Render Free + Vercel Hobby: see [deployment instructions](#7-deployment-on-render-and-vercel)
 for the complete setup, environment variables, and database instructions.
 
 ## 4. Configuration & Environment Variables
@@ -354,7 +354,7 @@ python scripts/benchmark_latency.py --concurrency 5 --turns 100
 python scripts/eval_live.py
 ```
 
-For full test coverage matrices and benchmark statistics, see [TEST_REPORT.md](TEST_REPORT.md).
+Run the commands above to generate test and benchmark results for your environment. Local evaluation reports are excluded from Git.
 
 ---
 
@@ -371,8 +371,125 @@ For full test coverage matrices and benchmark statistics, see [TEST_REPORT.md](T
 
 ---
 
-## 7. License
+## 7. Deployment on Render and Vercel
+
+The browser calls `/api` on Vercel. Next.js proxies those requests to Render,
+keeping the HttpOnly session cookie on the website's own domain. Leave
+`NEXT_PUBLIC_API_BASE_URL` unset on Vercel. `BACKEND_URL` is the server-side
+proxy destination and must not include `/api`.
+
+### 1. Push to GitHub
+
+Push the repository root including `backend/`, `frontend/`, `render.yaml`, and
+`frontend/package-lock.json`. The root `.gitignore` excludes `.env`, `.env.local`,
+virtual environments, node_modules, and local database files. Never commit keys
+or database passwords. Rotate any secret previously committed.
+
+### 2. Create a persistent free PostgreSQL database
+
+Create a Free project at [Neon](https://neon.com), near your Render region.
+Click **Connect** and copy the **direct/unpooled PostgreSQL connection URL**:
+
+```text
+postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=require&channel_binding=require
+```
+
+Keep this URL private. The backend converts it to asyncpg and compatible TLS
+options. Use a direct connection for migrations, not a transaction pooler.
+Another provider's externally accessible PostgreSQL database also works.
+
+Render Free web services have temporary filesystems: SQLite data is lost after
+restarts/redeploys. Render Free PostgreSQL expires after 30 days. Neon provides
+a separate free tier subject to usage limits. Local SQLite records are not
+automatically transferred to PostgreSQL.
+
+### 3. Deploy the Render backend
+
+1. Choose **New > Blueprint** in Render and connect your GitHub repository.
+   Use the root `render.yaml`, which selects a **Free** web service.
+2. Supply these prompted values:
+
+   | Variable | Value |
+   | --- | --- |
+   | `DATABASE_URL` | Private direct PostgreSQL URL from step 2 |
+   | `GROQ_API_KEY` | Your Groq key |
+   | `FRONTEND_ORIGIN` | Planned Vercel origin, e.g. `https://english-buddy.vercel.app` |
+
+3. Deploy. Save the actual URL, such as `https://english-buddy-api.onrender.com`.
+4. Open `/health` and `/ready` on that URL. Readiness should report database `ok`.
+
+The planned Vercel origin can be updated after step 4. No trailing slash or path.
+
+For manual Web Service creation, use **Python 3**, **Free**, root `backend`:
+
+```text
+Build: pip install -r requirements-render.txt
+Start: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+Health check: /health
+PYTHON_VERSION=3.12.10
+APP_ENV=production
+LLM_PROVIDER=groq
+GROQ_MODEL=openai/gpt-oss-20b
+```
+
+Also set the three values in the table. Migrations run before startup without a
+paid pre-deploy command. For an offline demo set `LLM_PROVIDER=mock`; no Groq key
+is needed in mock mode.
+
+### 4. Deploy the Vercel frontend
+
+1. Import the same GitHub repository into your **Hobby** account.
+2. Set **Root Directory** to `frontend`, preset **Next.js**, Node.js **24.x**.
+3. The included `vercel.json` uses `npm ci` and `npm run build`.
+4. Set this environment variable for **Production**:
+
+   ```text
+   BACKEND_URL=https://YOUR-ACTUAL-RENDER-SERVICE.onrender.com
+   ```
+
+5. Leave `NEXT_PUBLIC_API_BASE_URL` **unset**; remove any existing override.
+6. Deploy and copy the stable production domain.
+
+Changing `BACKEND_URL` requires a new Vercel deployment. Never add the Groq key
+or database URL to the frontend environment.
+
+### 5. Connect and verify
+
+1. Update Render's `FRONTEND_ORIGIN` to the **actual stable Vercel origin**,
+   e.g. `https://your-project.vercel.app`. Save/redeploy Render.
+2. Open the production website, complete setup, send a message, then refresh.
+   Your session and progress should remain.
+3. Browser Network tools should show requests to the Vercel domain's `/api/...`.
+   An initial `401` before setup is normal; session creation should return `200`.
+4. Restart/redeploy Render and verify that progress still exists.
+
+Use the stable production domain for testing. Add other exact trusted origins
+to Render's comma-separated `FRONTEND_ORIGIN` when needed. Do not allow all
+`*.vercel.app` projects. Preview/custom domains have their own session cookies.
+
+### Free tier limits and troubleshooting
+
+- Render Free sleeps after 15 minutes of inactivity. Waking can take about a
+  minute; if the proxy times out, open Render's `/health`, wait, then reload.
+- Render, Vercel, and Neon have free usage quotas. Vercel Hobby is for personal,
+  non-commercial use. Check current account limits before sharing widely.
+- Groq quotas/pricing are separate from hosting; mock mode works without Groq.
+- **403:** `FRONTEND_ORIGIN` must exactly match the website origin.
+- **Lost sessions:** Remove Vercel's public API URL override, use
+  `APP_ENV=production`, and confirm the database is PostgreSQL.
+- **502/504:** Check Render startup logs and `/ready` for sleep/startup/DB errors.
+- **Migration failure:** Check the direct database URL and credentials.
+  Do not stamp an empty database as migrated.
+
+References: [Render Free](https://render.com/docs/free),
+[Render Blueprints](https://render.com/docs/blueprint-spec),
+[Vercel rewrites](https://vercel.com/docs/routing/rewrites),
+[Vercel Hobby](https://vercel.com/docs/plans/hobby),
+[Neon pricing](https://neon.com/pricing).
+
+---
+
+## 8. License
 
 This project is licensed under the MIT License.
-#   B R I M S E L - a s s e s m e n t  
- 
+# BRIMSEL-assesment

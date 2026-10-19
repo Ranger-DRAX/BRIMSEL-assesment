@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# Environment secrets (keep sanitized setup templates)
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# SQLite data
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Node
+node_modules/
+.next/
+out/
+.vercel/
+.turbo/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test artifacts
+htmlcov/
+.coverage
+.coverage.*
+coverage/
+test-results/
+playwright-report/
+playwright/.cache/
+/live_eval_results.json
+
+# Logs
+*.log
+logs/
+
+# Generated
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+/scratch_*.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials
+*.pem
+*.key
+
+# Publish only the main README and architecture documentation.
+*.[mM][dD]
+!/README.md
+!/docs/architecture.md
